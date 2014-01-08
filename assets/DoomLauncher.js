@@ -23,11 +23,15 @@ function wadSelect() {
 
     	for (index = 0; index < contents.length; ++index)
     	{
+    		// Place File Name in Var
     		var fname = contents[index].name;
+    		// Get the File's EXT
     		var ext = fname.substr((~-fname.lastIndexOf(".") >>> 0) + 2)
     		if(ext.toLowerCase() == 'wad' || ext.toLowerCase() == 'pk3')
     		{
+    			// Get the Game
     			var game = fname.substr(0, fname.indexOf('_'));
+    			// Check if it's D1(Doom), or D2(Doom2)
     			if(game == 'd1')
     			{
     				gameIwad = 'doom';
@@ -36,24 +40,26 @@ function wadSelect() {
     			{
     				gameIwad = 'doom2';
     			}
-
+    			// Add them to the array to build the front page.
     			var theseThings = new Array();
     			theseThings[0] = gameIwad;
     			theseThings[1] = fname;
     			WadCollection.push(theseThings)
-    			air.trace(fname);
     		}
     		//air.trace(fname.substr(0, fname.indexOf('_')));
     	}
-    	air.trace(WadCollection);
+    	// Send to BuildHTML Function
     	buildHtml(WadCollection);
     }
 }
 
+/**
+ * BuildHTML
+ */
 function buildHtml(wads) {
 	wads.forEach(function(entry){
 		$('#wad-list').append(
-			'<li class="wad-listing" id="'+entry[0]+'" rel="'+entry[1]+'">' 
+			'<li class="wad-listing pointer" id="'+entry[0]+'" rel="'+entry[1]+'">' 
 			+
 			entry[1]
 			+
@@ -63,6 +69,9 @@ function buildHtml(wads) {
 	attachEvents();
 }
 
+/**
+ * EventListener
+ */
 function attachEvents()
 {
 	$('li.wad-listing').click(function(){
@@ -74,6 +83,9 @@ function attachEvents()
 	})
 }
 
+/**
+ * Play DOOM
+ */
 function playZ(iwad, wad) {
 	var process;
 	var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();

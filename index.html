@@ -10,15 +10,26 @@
 <body onLoad="appLoad()">
 	<h1 id="logo">DoomLauncher</h1>
 
-	<div class="wad-folder" onClick="wadSelect()">
-		Select Your WAD Folder!
+<div class="menu">
+	<div class="button pointer" onClick="wadSelect()">
+		Select WAD Folder
 	</div>
 
-	<div class="wad-folder" onClick="playZ('doom')">
-		Launch Zandronum (DooM)!
-	</div>
+	<div class="v-but">
+		Play: 
+		<div class="button pointer" onClick="playZ('doom')">
+			DooM
+		</div>
 
-	<div id="wad-list">
+		<div class="button pointer" onClick="playZ('doom2')">
+			DooMII
+		</div>
+	</div>
+</div>
+
+	<div>
+		<ul id="wad-list">
+		</ul>
 	</div>
 
 </body>
