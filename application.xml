@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application xmlns="http://ns.adobe.com/air/application/3.9"> 
+    <id>examples.html.DoomLauncher</id> 
+    <versionNumber>1.0</versionNumber> 
+    <filename>DooMLauncher</filename>
+    <name>DooM Launcher</name>
+    <description>
+    	<text xml:lang="en">A Lightweight WAD Launcher!</text>
+    </description> 
+    <initialWindow> 
+        <content>index.html</content> 
+        <visible>true</visible> 
+        <width>600</width>
+        <height>800</height>
+        <minSize>600 800</minSize> 
+    </initialWindow> 
+    <supportedProfiles>extendedDesktop desktop</supportedProfiles>
+</application>

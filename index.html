@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+	<title>DoomLauncher</title>
+	<script src="AIRAliases.js" type="text/javascript"></script>
+	<script src="assets/jquery.js"></script>
+	<script src="assets/DoomLauncher.js"></script>
+	<link rel="stylesheet" href="assets/default.css" />
+</head>
+
+<body onLoad="appLoad()">
+	<h1 id="logo">DoomLauncher</h1>
+
+	<div class="wad-folder" onClick="wadSelect()">
+		Select Your WAD Folder!
+	</div>
+
+	<div class="wad-folder" onClick="playZ('doom')">
+		Launch Zandronum (DooM)!
+	</div>
+
+	<div id="wad-list">
+	</div>
+
+</body>
+<script type="text/javascript"> 
+function appLoad() { 
+    air.trace("DooMLauncher Starting..."); 
+};
+
+</script>
+
+</html>
