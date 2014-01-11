@@ -1,26 +1,36 @@
-var config = {
-	enginePath: 'F:/Games/Source Ports/Zandronum/zandronum.exe'
-}
-
-var ConfigWadPath = air.EncryptedLocalStore.getItem("wadFolder");
-//var config_wadPath;
-//var config_enginePath;
-
-/// I'd recommend not editing anything below, but you are your own person, so you do so at your own risk. 
+/**
+ *
+ */
 function init()
 { 
+    var ConfigWadPath = air.EncryptedLocalStore.getItem("wadFolder");
     if(ConfigWadPath != '')
     {
         loadWads(ConfigWadPath);
     }
 }
 
+/**
+ *
+ */
 function getWadPath()
 {
     var wadPath = air.EncryptedLocalStore.getItem("wadFolder");
     return wadPath;
 }
 
+/**
+ *
+ */
+function getEnginePath()
+{
+    var enginePath = air.EncryptedLocalStore.getItem("enginePath");
+    return enginePath;
+}
+
+/**
+ *
+ */
 function loadWads(path)
 {
     //air.trace(ConfigWadPath);
@@ -75,17 +85,26 @@ function wadSelect() {
     }
 }
 
+/**
+ *
+ */
 function engineSelect()
 {
-    var engine = new air.File();
-    engine.addEventListener(air.Event.SELECT, exeSelected);
-    engine.browseForDirectory("Select your Engine EXE");
+    var exe = air.File.documentsDirectory;
+    var exeFilter = new air.FileFilter("Executable", "*.exe");
+    exe.browseForOpen("Open", new window.runtime.Array(exeFilter));
+    exe.addEventListener(air.Event.SELECT, exeSelected);
+
     function exeSelected(event)
     {
-        setEnginePath(engine.NativePath);
+        setEnginePath(exe.nativePath);
     }
+
 }
 
+/**
+ *
+ */
 function setWadFolderDir(path)
 {
     var wadPath = path;
@@ -95,12 +114,16 @@ function setWadFolderDir(path)
     return true;
 }
 
+/**
+ *
+ */
 function setEnginePath(path)
 {
     var enginePath = path;
     var bytes = new air.ByteArray();
     bytes.writeUTFBytes(enginePath);
     air.EncryptedLocalStore.setItem("enginePath", bytes);
+    air.trace(path);
     return true;
 }
 
@@ -123,6 +146,9 @@ function buildHtml(wads) {
 	clickHandler();
 }
 
+/**
+ *
+ */
 function resetHtml()
 {
     var list = document.getElementById("wad-list");
@@ -139,22 +165,23 @@ function clickHandler()
 		var game = $(this).attr('id');
 		var wad = $(this).attr('rel');
         // Launch the Game w/ the IWAD & WAD information.
-		playZ(game, wad);
+		playDoom(game, wad);
 	})
 }
 
 /**
  * Play DOOM
  */
-function playZ(iwad, wad) {
+function playDoom(iwad, wad) {
     //air.trace(ConfigWadPath);
     var wadFolderPath = getWadPath();
+    var sourcePort = getEnginePath();
     //air.trace(testing);
 	var process;
 	var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
 
 	/* Define the startup exe */
-	var exe = new air.File(config.enginePath);
+	var exe = new air.File(sourcePort);
 	nativeProcessStartupInfo.executable = exe;
 
 	/* Build the Args */
