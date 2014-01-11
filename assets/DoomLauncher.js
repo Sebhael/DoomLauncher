@@ -11,11 +11,9 @@ function wadSelect() {
 
     var folder = new air.File();
     folder.addEventListener(air.Event.SELECT, dirSelected);
-    folder.browseForDirectory("Select a Directory");
+    folder.browseForDirectory("Select your WAD Folder.");
 
     function dirSelected(event) {
-    	//alert(folder.nativePath);
-    	
     	var contents = folder.getDirectoryListing();
     	var index;
     	var gameIwad;
@@ -32,6 +30,7 @@ function wadSelect() {
     			// Get the Game
     			var game = fname.substr(0, fname.indexOf('_'));
     			// Check if it's D1(Doom), or D2(Doom2)
+                // @todo clean this up, especially considering hexen and the others
     			if(game == 'd1')
     			{
     				gameIwad = 'doom';
@@ -59,27 +58,28 @@ function wadSelect() {
 function buildHtml(wads) {
 	wads.forEach(function(entry){
 		$('#wad-list').append(
-			'<li class="wad-listing pointer" id="'+entry[0]+'" rel="'+entry[1]+'">' 
+			'<li class="wad-listing pointer" id="'+entry[0]+'" rel="'+entry[1]+'">'
+            +
+            '<img src="/img/'+entry[0]+'.png" class="game-ico">' 
 			+
 			entry[1]
 			+
 			'</li>'
 			);
 	});
-	attachEvents();
+	clickHandler();
 }
 
 /**
  * EventListener
  */
-function attachEvents()
+function clickHandler()
 {
 	$('li.wad-listing').click(function(){
 		var game = $(this).attr('id');
 		var wad = $(this).attr('rel');
-		air.trace(wad);
+        // Launch the Game w/ the IWAD & WAD information.
 		playZ(game, wad);
-
 	})
 }
 
