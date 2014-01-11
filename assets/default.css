@@ -29,6 +29,17 @@ h1#logo {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1d', endColorstr='#171717',GradientType=0 );
 }
 
+.button:hover {
+	background: #171717;
+	background: -moz-linear-gradient(top,  #171717 0%, #1d1d1d 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#171717), color-stop(100%,#1d1d1d));
+	background: -webkit-linear-gradient(top,  #171717 0%,#1d1d1d 100%);
+	background: -o-linear-gradient(top,  #171717 0%,#1d1d1d 100%);
+	background: -ms-linear-gradient(top,  #171717 0%,#1d1d1d 100%);
+	background: linear-gradient(to bottom,  #171717 0%,#1d1d1d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171717', endColorstr='#1d1d1d',GradientType=0 );
+}
+
 div.menu {
 	background: #161616;
 	padding:3px;
@@ -52,10 +63,16 @@ ul#wad-list, ul#wad-list li {
 
 ul#wad-list li {
 	font-size: 12px;
-	height: 40px;
-	line-height: 40px;
+	height: 24px;
+	line-height: 24px;
 }
 
 ul#wad-list li:hover{
 	background: #161616;
+}
+
+img.game-ico {
+	width:16px;
+	padding:2px;
+	margin-right:5px;
 }

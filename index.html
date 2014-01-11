@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="assets/default.css" />
 </head>
 
-<body onLoad="appLoad()">
+<body>
 	<h1 id="logo">DoomLauncher</h1>
 
 <div class="menu">
 	<div class="button pointer" onClick="wadSelect()">
-		Select WAD Folder
+		<img src="/img/folder.png" style="vertical-align:middle"/> Select WAD Folder
 	</div>
 
 	<div class="v-but">
@@ -25,19 +25,19 @@
 			DooMII
 		</div>
 	</div>
+	<p style="margin:5px;padding:0;font-size:10px;">
+		Show Only:
+	</p>
 </div>
 
-	<div>
-		<ul id="wad-list">
-		</ul>
-	</div>
+<div>
+	<ul id="wad-list">
+	</ul>
+</div>
+
+<footer style='display:none'>
+Developed by <a href="http://kgagliardo.com">Sebhael</a> for <a href="http://forums.vinticuffs.com">Vinticuffs</a>, all rights reserved ~ 2014 and beyond.
+</footer>
 
 </body>
-<script type="text/javascript"> 
-function appLoad() { 
-    air.trace("DooMLauncher Starting..."); 
-};
-
-</script>
-
 </html>
