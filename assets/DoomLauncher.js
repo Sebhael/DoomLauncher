@@ -1,22 +1,29 @@
 var config = {
-	enginePath: 'F:/Games/Source Ports/Zandronum/zandronum.exe',
-	wadPath: 'F:/Games/Source Ports/Zandronum/wads/'
+	enginePath: 'F:/Games/Source Ports/Zandronum/zandronum.exe'
 }
+
+var ConfigWadPath = air.EncryptedLocalStore.getItem("wadFolder");
+//var config_wadPath;
+//var config_enginePath;
+
 /// I'd recommend not editing anything below, but you are your own person, so you do so at your own risk. 
-
-//var ConfigWadPath;
-
 function init()
-{
-    var ConfigWadPath = air.EncryptedLocalStore.getItem("wadFolder");
+{ 
     if(ConfigWadPath != '')
     {
         loadWads(ConfigWadPath);
     }
 }
 
+function getWadPath()
+{
+    var wadPath = air.EncryptedLocalStore.getItem("wadFolder");
+    return wadPath;
+}
+
 function loadWads(path)
 {
+    //air.trace(ConfigWadPath);
     var folder = new air.File(path);
     var contents = folder.getDirectoryListing();
     var index;
@@ -68,6 +75,17 @@ function wadSelect() {
     }
 }
 
+function engineSelect()
+{
+    var engine = new air.File();
+    engine.addEventListener(air.Event.SELECT, exeSelected);
+    engine.browseForDirectory("Select your Engine EXE");
+    function exeSelected(event)
+    {
+        setEnginePath(engine.NativePath);
+    }
+}
+
 function setWadFolderDir(path)
 {
     var wadPath = path;
@@ -75,7 +93,15 @@ function setWadFolderDir(path)
     bytes.writeUTFBytes(wadPath);
     air.EncryptedLocalStore.setItem("wadFolder", bytes);
     return true;
-    //alert(path);
+}
+
+function setEnginePath(path)
+{
+    var enginePath = path;
+    var bytes = new air.ByteArray();
+    bytes.writeUTFBytes(enginePath);
+    air.EncryptedLocalStore.setItem("enginePath", bytes);
+    return true;
 }
 
 /**
@@ -121,6 +147,9 @@ function clickHandler()
  * Play DOOM
  */
 function playZ(iwad, wad) {
+    //air.trace(ConfigWadPath);
+    var wadFolderPath = getWadPath();
+    //air.trace(testing);
 	var process;
 	var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
 
@@ -135,7 +164,7 @@ function playZ(iwad, wad) {
 	args[0] = "-iwad"; 
 	args[1] = iwad + '.wad';
 	args[2] = "-file";
-	args[3] = config.wadPath + wad;
+	args[3] = wadFolderPath + '\\' + wad;
 	// Define the remaining files needed.
 	nativeProcessStartupInfo.arguments = args;
 	// Construct, and Launch
