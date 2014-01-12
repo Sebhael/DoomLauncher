@@ -1,9 +1,10 @@
 /**
- *
+ * Init
+ *  Check to see if WadPath is set, if so, load the list.
  */
 function init()
 { 
-    var ConfigWadPath = air.EncryptedLocalStore.getItem("wadFolder");
+    var ConfigWadPath = getWadPath();
     if(ConfigWadPath != '')
     {
         loadWads(ConfigWadPath);
@@ -11,36 +12,17 @@ function init()
 }
 
 /**
- *
- */
-function getWadPath()
-{
-    var wadPath = air.EncryptedLocalStore.getItem("wadFolder");
-    return wadPath;
-}
-
-/**
- *
- */
-function getEnginePath()
-{
-    var enginePath = air.EncryptedLocalStore.getItem("enginePath");
-    return enginePath;
-}
-
-/**
- *
+ * Load Wads
+ *  Loads all .wad and .pk3 files found in the directory.
  */
 function loadWads(path)
 {
-    //air.trace(ConfigWadPath);
     var folder = new air.File(path);
     var contents = folder.getDirectoryListing();
-    var index;
     var gameIwad;
     var WadCollection = new Array();
 
-    for (index = 0; index < contents.length; ++index)
+    for (var index = 0; index < contents.length; ++index)
     {
         // Place File Name in Var
         var fname = contents[index].name;
@@ -53,13 +35,9 @@ function loadWads(path)
             // Check if it's D1(Doom), or D2(Doom2)
             // @todo clean this up, especially considering hexen and the others
             if(game == 'd1')
-            {
-                gameIwad = 'doom';
-            }
+            { gameIwad = 'doom'; }
             else
-            {
-                gameIwad = 'doom2';
-            }
+            { gameIwad = 'doom2'; }
             // Add them to the array to build the front page.
             var gameFiles = new Array();
             gameFiles[0] = gameIwad;
@@ -72,6 +50,7 @@ function loadWads(path)
 
 /**
  * WAD Directory Selection
+ *  Opens a explorer prompt for the user to select their WADs
  */
 function wadSelect() {
 
@@ -86,7 +65,8 @@ function wadSelect() {
 }
 
 /**
- *
+ * Engine Exe Selection
+ *  Opens a explorer prompt for the user to select their exe.
  */
 function engineSelect()
 {
@@ -103,7 +83,95 @@ function engineSelect()
 }
 
 /**
- *
+ * BuildHTML
+ *  Populates the UL#wad-list with WADs
+ */
+function buildHtml(wads) {
+    // Clean up the old list first.
+    resetHtml();
+
+    // Go through the Wad array, and build a <li> for each.
+    // @todo clean this mess
+	wads.forEach(function(entry){
+		$('#wad-list').append(
+			'<li class="wad-listing pointer" id="'+entry[0]+'" rel="'+entry[1]+'">'
+            +
+            '<img src="/img/'+entry[0]+'.png" class="game-ico">' 
+			+
+			entry[1]
+			+
+			'</li>'
+			);
+	});
+    
+    // Start listening for clicks on the list
+	clickHandler();
+}
+
+/**
+ * ResetHtml
+ *  Removes the generated HTML from buildHtml()
+ *  to populate a new list.
+ */
+function resetHtml()
+{
+    var list = document.getElementById("wad-list");
+    // Purge the list
+    list.innerHTML = '';
+    return true;
+}
+
+/**
+ * EventListener
+ *  Listen for clicks on the wad-listing li's
+ */
+function clickHandler()
+{
+	$('li.wad-listing').click(function(){
+        // The ID will decide the IWAD
+		var game = $(this).attr('id');
+        // the rel attributes will govern the custom Wad
+		var wad = $(this).attr('rel');
+        // Launch the Game w/ the IWAD & WAD information.
+		playDoom(game, wad);
+	})
+}
+
+/**
+ * Play DOOM
+ *  Compiles the data from the list, and launches the users
+ *  prefered source port w/ the proper WADs.
+ */
+function playDoom(iwad, wad) {
+    // Get the stored path information
+    var wadFolderPath = getWadPath();
+    var sourcePort = getEnginePath();
+
+    // Initiate NativeProcess & all required methods.
+	var process = new air.NativeProcess();
+	var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
+	var exe = new air.File(sourcePort);
+	var args = new air.Vector["<String>"]();
+
+	// First two should always be the initial game to play.
+	args[0] = "-iwad"; 
+	args[1] = iwad + '.wad';
+    // @todo recursive looping for multi-wad mods.
+	args[2] = "-file";
+	args[3] = wadFolderPath + '\\' + wad;
+
+    // Attach the needed information to nativeProcessStartInfo
+    nativeProcessStartupInfo.executable = exe;
+	nativeProcessStartupInfo.arguments = args;
+	// and Launch
+	return process.start(nativeProcessStartupInfo);
+}
+
+/**
+ * Getters & Setters
+ */
+/**
+ * Set WAD Folder
  */
 function setWadFolderDir(path)
 {
@@ -115,7 +183,16 @@ function setWadFolderDir(path)
 }
 
 /**
- *
+ * Get WAD Folder
+ */
+function getWadPath()
+{
+    var wadPath = air.EncryptedLocalStore.getItem("wadFolder");
+    return wadPath;
+}
+
+/**
+ * Set Engine Exe Path
  */
 function setEnginePath(path)
 {
@@ -128,73 +205,10 @@ function setEnginePath(path)
 }
 
 /**
- * BuildHTML
+ * Get Engine Exe Path
  */
-function buildHtml(wads) {
-    resetHtml();
-	wads.forEach(function(entry){
-		$('#wad-list').append(
-			'<li class="wad-listing pointer" id="'+entry[0]+'" rel="'+entry[1]+'">'
-            +
-            '<img src="/img/'+entry[0]+'.png" class="game-ico">' 
-			+
-			entry[1]
-			+
-			'</li>'
-			);
-	});
-	clickHandler();
-}
-
-/**
- *
- */
-function resetHtml()
+function getEnginePath()
 {
-    var list = document.getElementById("wad-list");
-    list.innerHTML = '';
-    return true;
-}
-
-/**
- * EventListener
- */
-function clickHandler()
-{
-	$('li.wad-listing').click(function(){
-		var game = $(this).attr('id');
-		var wad = $(this).attr('rel');
-        // Launch the Game w/ the IWAD & WAD information.
-		playDoom(game, wad);
-	})
-}
-
-/**
- * Play DOOM
- */
-function playDoom(iwad, wad) {
-    //air.trace(ConfigWadPath);
-    var wadFolderPath = getWadPath();
-    var sourcePort = getEnginePath();
-    //air.trace(testing);
-	var process;
-	var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-
-	/* Define the startup exe */
-	var exe = new air.File(sourcePort);
-	nativeProcessStartupInfo.executable = exe;
-
-	/* Build the Args */
-	var args = new air.Vector["<String>"]();
-	// First two should always be the initial game to play.
-    // @todo recursive looping for multi-wad mods.
-	args[0] = "-iwad"; 
-	args[1] = iwad + '.wad';
-	args[2] = "-file";
-	args[3] = wadFolderPath + '\\' + wad;
-	// Define the remaining files needed.
-	nativeProcessStartupInfo.arguments = args;
-	// Construct, and Launch
-	process = new air.NativeProcess();
-	return process.start(nativeProcessStartupInfo);
+    var enginePath = air.EncryptedLocalStore.getItem("enginePath");
+    return enginePath;
 }
