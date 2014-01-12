@@ -4,6 +4,12 @@
  */
 function init()
 { 
+    var firstTime = false;
+    if(firstTime === true)
+    {
+        $("#first-time").show();
+    }
+
     var ConfigWadPath = getWadPath();
     if(ConfigWadPath != '')
     {
@@ -103,7 +109,7 @@ function buildHtml(wads) {
 			'</li>'
 			);
 	});
-    
+
     // Start listening for clicks on the list
 	clickHandler();
 }

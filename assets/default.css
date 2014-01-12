@@ -44,6 +44,7 @@ div.menu {
 	background: #161616;
 	padding:3px;
 	border-radius: 5px;
+	margin-bottom:10px;
 }
 
 div.v-but {
@@ -75,4 +76,8 @@ img.game-ico {
 	width:16px;
 	padding:2px;
 	margin-right:5px;
+}
+
+div#first-time {
+	display: none;
 }

@@ -11,24 +11,45 @@
 	<h1 id="logo">DoomLauncher</h1>
 
 <div class="menu">
-	<div class="button pointer" onClick="wadSelect()">
-		<img src="/img/folder.png" style="vertical-align:middle"/> 
-		Select WAD Folder
+	<div class="button pointer" onClick="playDoom('doom')">
+		DooM
 	</div>
-	<div class="button pointer" onClick="engineSelect()">
-		Select Engine
+	<div class="button pointer" onClick="playDoom('doom2')">
+		DooM II
 	</div>
-	<div class="v-but"> 
-		<div class="button pointer" onClick="playDoom('doom')">
-			DooM
-		</div>
 
-		<div class="button pointer" onClick="playDoom('doom2')">
-			DooMII
+	<div class="v-but"> 
+		<div class="button pointer" onClick="wadSelect()">
+			<img src="/img/folder.png" style="vertical-align:middle"/> 
+			WAD Folder
+		</div>
+		<div class="button pointer" onClick="engineSelect()">
+			Engine
 		</div>
 	</div>
-	<p style="margin:5px;padding:0;font-size:10px;">
+	<p style="margin:5px;padding:0;font-size:10px;display:none">
 		Show Only:
+	</p>
+</div>
+
+<div id="first-time">
+	Hey, it looks like this is your first time running DooM Launcher!
+	<p>
+		You will need a couple of things to get started, 
+		<ul>
+			<li>The appropriate IWAD from DOOM 1 (doom.wad) or DOOM 2 (doom2.wad).</li>
+			<li>A Doom Engine Source Port.</li>
+			<li>Some Custom WADs!</li>
+		</ul>
+		After you've obtained and set them up as you would like on your system, you should be able to use DooM Launcher now.
+
+		<p>
+			To get started, first click the "Select Engine" button - and navigate to the .exe of your Doom Source Port.
+		</p>
+		<p>
+			Now click on "Select WAD Folder", and navigate to your secret stash.
+		</p>
+		<p>Now play some DooM by clicking the desired WAD from the list!</p>
 	</p>
 </div>
 

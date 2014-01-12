@@ -15,4 +15,7 @@
         <minSize>600 800</minSize> 
     </initialWindow> 
     <supportedProfiles>extendedDesktop desktop</supportedProfiles>
+    <icon>
+        <image32x32>assets/ico32.png</image32x32>
+    </icon>
 </application>
