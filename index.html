@@ -10,7 +10,12 @@
 <body onLoad="init()">
 	<h1 id="logo">DoomLauncher</h1>
 
-<div class="menu">
+<div style="padding:0px 5px;margin:3px 5px;font-size:10px;color:#DDD">
+<span style="float:left">Launch DooM</span>
+<span style="float:right">Configure DooMLauncher</span>
+</div>
+
+<div class="menu" style="clear:both">
 	<div class="button pointer" onClick="playDoom('doom')">
 		DooM
 	</div>
@@ -24,6 +29,7 @@
 			WAD Folder
 		</div>
 		<div class="button pointer" onClick="engineSelect()">
+			<img src="/img/folder.png" style="vertical-align:middle"/> 
 			Engine
 		</div>
 	</div>
@@ -32,6 +38,7 @@
 	</p>
 </div>
 
+<!-- First Time Running "Tutorial" -->
 <div id="first-time">
 	Hey, it looks like this is your first time running DooM Launcher!
 	<p>
@@ -54,6 +61,7 @@
 </div>
 
 <div>
+	<!-- WAD List Will Populate Here -->
 	<ul id="wad-list">
 	</ul>
 </div>
