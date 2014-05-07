@@ -1,14 +1,3 @@
-function engines(reqs, path) 
-{
-    this.reqs = reqs;
-    this.path = path;
-}
-
-window.installedEngines = [
-    new engines('DOOM.WAD', 'c:/test/lol.exe'),
-    new engines('DOOM2.WAD', 'c:/test/lol2.exe')
-];
-
 /**
  * Init
  *  Check to see if WadPath is set, if so, load the list.
@@ -223,27 +212,4 @@ function getEnginePath()
 {
     var enginePath = air.EncryptedLocalStore.getItem("enginePath");
     return enginePath;
-}
-
-/*******
-** CONFIGURATION AND SET-UP FUNCTIONS
-********/
-/**
- * Custom WindowChrome Listeners
- */
-function onClose() // Close (X)
-{
-    window.nativeWindow.close();
-}
-function onMinimize() // Minimize (-)
-{
-    window.nativeWindow.minimize();
-}
-function onRestore() // Restore
-{
-    window.nativeWindow.restore();
-}
-function onNativeMove()
-{
-    nativeWindow.startMove();
 }

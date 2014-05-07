@@ -6,8 +6,8 @@ body {
 
 h1#logo { 
 	background: url('/img/dl-logo.png'); 
-	background-size:40%;
-	background-repeat:no-repeat;
+	background-size: 40%;
+	background-repeat: no-repeat;
 	width: 65%;
 	height: 65%;
 	text-indent: -9999px;
