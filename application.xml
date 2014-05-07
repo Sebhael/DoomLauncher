@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <application xmlns="http://ns.adobe.com/air/application/3.9"> 
-    <id>examples.html.DoomLauncher</id> 
+    <id>DoomLauncher</id> 
     <versionNumber>1.0</versionNumber> 
     <filename>DooMLauncher</filename>
     <name>DooM Launcher</name>
@@ -10,9 +10,9 @@
     <initialWindow> 
         <content>index.html</content> 
         <visible>true</visible> 
-        <width>600</width>
-        <height>800</height>
-        <minSize>600 800</minSize> 
+        <width>800</width>
+        <height>500</height>
+        <minSize>500 800</minSize> 
     </initialWindow> 
     <supportedProfiles>extendedDesktop desktop</supportedProfiles>
     <icon>
