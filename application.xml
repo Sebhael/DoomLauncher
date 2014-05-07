@@ -11,7 +11,7 @@
         <content>index.html</content> 
         <visible>true</visible> 
         <width>800</width>
-        <height>500</height>
+        <height>500</height> 
         <minSize>500 800</minSize> 
     </initialWindow> 
     <supportedProfiles>extendedDesktop desktop</supportedProfiles>

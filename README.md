@@ -13,4 +13,4 @@ Should you decide to download it right now, here's what you should know.
 2. The way this works at the moment requires you to edit your WADs names. That's how it knows which -IWAD to include on start-up. So all you have to do is prepend your DooM1 WADs with d1_ and your DooMII WADs with d2_. No real further adjustment is required, and this is something I might keep in the final process. Though a stretch goal is to include an import function that will automatically rename the file for you.
 3. The coding sucks. I know. No excuses. Another reason I'm doing this is to get further into JavaScript development. 
 4. This is being developed on Windows 8.1, and all Windows platforms should be supported. Linux/OSx is another stretch goal.
-
+ 
