@@ -213,3 +213,26 @@ function getEnginePath()
     var enginePath = air.EncryptedLocalStore.getItem("enginePath");
     return enginePath;
 }
+
+/**
+ * Create & Populate Storage
+ */
+function createDatabase()
+{
+    var connection = new air.SQLConnection();
+    connection.addEventListener(air.SQLEvent.OPEN, openHandler);
+    connection.addEventListener(air.SQLErrorEvent.ERROR, errorHandler);
+
+    var storage = air.File.applicationStorageDirectory;
+    var database = storage.resolvePath("DooMLauncher.db");
+
+    connection.openAsync(database);
+    function openHandler()
+    {
+        air.trace('Database Successfully Created.')
+    }
+    function errorHandler()
+    {
+        air.trace('Database Creation Failed!');
+    }
+}

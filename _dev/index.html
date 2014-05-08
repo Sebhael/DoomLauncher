@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DooMLauncher (v1.0)</title>
+	<script src="AIRAliases.js"></script>
+	<script src="assets/jquery.js"></script>
+	<script src="assets/config.js"></script>
+	<script src="assets/DoomLauncher.js"></script>
+	<link rel="stylesheet" href="assets/default.css" />
+</head>
+
+<body onLoad="startLauncher()">
+	<header>
+		<h1>DoomLauncher</h1>
+	</header>
+
+	<div class="menu" style="clear:both">
+		<span class="current-game">
+		</span>
+		
+		<div class="v-but">
+			<div class="button pointer" onClick="modFolderSelect()">
+				Mod Folder
+			</div>
+			<div class="button pointer" onClick="enginePathSelect()">
+				Engine
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="game-list">
+			Installed Games
+		</div>
+
+		<div class="mods-list">
+			Compatible Mods
+		</div>
+
+		<div class="mod-info">
+			No File Selected
+		</div>
+	</div>
+</body>
+</html>
