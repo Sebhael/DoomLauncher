@@ -49,7 +49,7 @@ function enginePathSelect(game)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Load Required Mods
+// Load Supported Mod Files
 function loadMods(path)
 {
 	var dir = new air.File(path);
@@ -72,40 +72,59 @@ function loadMods(path)
 		}
 		//air.trace(mods);
 	}
-	createList(mods);
+	//createList(mods);
 }
 
-//# DOM Manipulation #///////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Launch The Game
+function launchGame(game, mod)
+{
+	var process = new air.NativeProcess();
+	var startup = new air.NativeProcessStartupInfo();
+	var engine = new air.File(engine);
+
+	// Params should be included within the database information...
+	// var params = new air.Vector["<String>"]();
+
+	startup.executable = engine;
+	startup.arguments = params;
+
+	return process.start(startup);
+}
 
 //# LocalStorage Processing #///////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Set MOD Folder
 function set_modFolder(path)
 {
 	setls('modFolder', path);
     return true;
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Set Engine Path
 function set_enginePath(path)
 {
 	setls('enginePath', path);
 	return true;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// LocalStorage Setter
 function setls(item, value)
 {
 	var bytes = new air.ByteArray();
 	bytes.writeUTFBytes(value);
-	var item = air.EncryptedLocalStore.setItem(value, bytes);
+	air.EncryptedLocalStore.setItem(item, bytes);
 	return;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Local Storage Getter
 function getls(item)
 {
 	var item = air.EncryptedLocalStore.getItem(item);
 	return item;
 }
+
 //# Database Processing #///////////////////////
-
-//# Get/Set Methods #///////////////////////
-
-//# Various Helpers & Others #///////////////////////
-
-//#  #///////////////////////

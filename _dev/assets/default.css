@@ -58,19 +58,19 @@ div.v-but {
 	cursor: pointer;
 }
 
-ul#wad-list, ul#wad-list li {
+ul#mods-list, ul#mods-list li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-ul#wad-list li {
+ul#mods-list li {
 	font-size: 12px;
 	height: 24px;
 	line-height: 24px;
 }
 
-ul#wad-list li:hover{
+ul#mods-list li:hover{
 	background: #161616;
 }
 
