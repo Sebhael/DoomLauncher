@@ -49,10 +49,9 @@ function enginePathSelect(game)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Play the Game!
+// Load Required Mods
 function loadMods(path)
 {
-	air.trace('loading mods');
 	var dir = new air.File(path);
 	var files = dir.getDirectoryListing();
 	var mods = new Array();
@@ -65,14 +64,15 @@ function loadMods(path)
 		if(chex != -1)
 		{
 			var modInfo = new Array();
-			modInfo[0] = fileName //mod name
+			modInfo[0] = fileName; //mod name
 			modInfo[1] = dir.nativePath + '/' + fileName; //mod path
-			modInfo[2] = ['this','that'], // requires
-			modInfo[3] = '-param testing.exe -another-param why not?',
+			modInfo[2] = ['this','that'] // requires
+			modInfo[3] = '-param testing.exe -another-param why not?'; // params
 			mods.push(modInfo);
 		}
-		air.trace(mods);
+		//air.trace(mods);
 	}
+	createList(mods);
 }
 
 //# DOM Manipulation #///////////////////////
@@ -80,13 +80,28 @@ function loadMods(path)
 //# LocalStorage Processing #///////////////////////
 function set_modFolder(path)
 {
-    var wadPath = path;
-    var bytes = new air.ByteArray();
-    bytes.writeUTFBytes(wadPath);
-    air.EncryptedLocalStore.setItem("wadFolder", bytes);
+	setls('modFolder', path);
     return true;
 }
 
+function set_enginePath(path)
+{
+	setls('enginePath', path);
+	return true;
+}
+
+function setls(item, value)
+{
+	var bytes = new air.ByteArray();
+	bytes.writeUTFBytes(value);
+	var item = air.EncryptedLocalStore.setItem(value, bytes);
+	return;
+}
+function getls(item)
+{
+	var item = air.EncryptedLocalStore.getItem(item);
+	return item;
+}
 //# Database Processing #///////////////////////
 
 //# Get/Set Methods #///////////////////////

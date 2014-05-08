@@ -80,6 +80,18 @@ img.game-ico {
 	margin-right:5px;
 }
 
-div#first-time {
+div#setup {
 	display: none;
+}
+
+div.mods-list {
+	width: 350px;
+}
+div.mod-info {
+	width: 250px;
+}
+div.panel {
+	float: left;
+	padding: 3px;
+	margin-right: 5px;
 }
