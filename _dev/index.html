@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DooMLauncher (v1.0)</title>
+	<title>DooMLauncher - 1.0</title>
 	<script src="assets/js/AIRAliases.js"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/config.js"></script>
@@ -25,34 +25,39 @@
 
 	<div class="menu" style="clear:both">
 		<span class="game-list">
+			<img src="assets/img/ico/doom1.png" title="iD Software: DooM" />
+			<img src="assets/img/ico/doom2.png" title="iD Software: DooM II" />
 		</span>
 
 		<div class="v-but">
-			<div class="button pointer" onClick="modFolderSelect()">
-				Mods
-			</div>
-			<div class="button pointer" onClick="enginePathSelect()">
-				Engine
+			<div class="button pointer" onClick="changePage()">
+				Games
 			</div>
 			<div class="button pointer" onClick="changePage()">
-				Configuration
+				Set-Up
 			</div>
 		</div>
 		<div style="clear:both"></div>
 	</div>
 
 	<div id="dl-config">
+			<div class="button pointer" onClick="modFolderSelect()">
+				Mods
+			</div>
+			<div class="button pointer" onClick="enginePathSelect()">
+				Engine
+			</div>
 		<div>
 			Looks like we don't have any configuration information for you! Click on a game below to get started!
 		</div>
 		<div class="box-images">
-			<img class="pointer" alt="doom" src="assets/box/doom.jpg" />
-			<img class="pointer" alt="doom2" src="assets/box/doom2.jpg" />
-			<img class="pointer" alt="heretic" src="assets/box/heretic.jpg" />
-			<img class="pointer" alt="hexen" src="assets/box/hexen.jpg" />
-			<img class="pointer" alt="strife" src="assets/box/strife.jpg" />
-			<img class="pointer" alt="hacx" src="assets/box/hacx.jpg" />
-			<img class="pointer" alt="chexquest" src="assets/box/chex.jpg" />
+			<img class="pointer" alt="doom" src="assets/img/box/doom.jpg" />
+			<img class="pointer" alt="doom2" src="assets/img/box/doom2.jpg" />
+			<img class="pointer" alt="heretic" src="assets/img/box/heretic.jpg" />
+			<img class="pointer" alt="hexen" src="assets/img/box/hexen.jpg" />
+			<img class="pointer" alt="strife" src="assets/img/box/strife.jpg" />
+			<img class="pointer" alt="hacx" src="assets/img/box/hacx.jpg" />
+			<img class="pointer" alt="chexquest" src="assets/img/box/chex.jpg" />
 		</div>
 	</div>
 
@@ -73,12 +78,25 @@
 				<li>DooM Raider</li>
 				<li>MassMouth 2</li>
 				<li>NimRoD IXNAY</li>
+								<li>Alien Vendetta</li>
+				<li>Brotherhood of Ruin</li>
+				<li>Chosen</li>
+				<li>Community Chest #2</li>
+				<li>Console DooM</li>
+				<li>Evilution</li>
+				<li>Head2Head - XMas</li>
+				<li>HellCore</li>
+				<li>HellCore 2</li>
+				<li>DooM 64</li>
+				<li>DooM Raider</li>
+				<li>MassMouth 2</li>
+				<li>NimRoD IXNAY</li>
 			</ul>
 		</div>
 
 		<div class="mod-info panel">
 			<div class="mod-title"><center>DooM 64</center></div>
-			<img src="assets/wads/doom64.png" />
+			<img src="assets/img/wads/doom64.png" />
 			<center><div class="button pointer play-button">Play DooM 64!</div></center>
 		</div>
 	</div>

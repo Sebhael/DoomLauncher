@@ -13,6 +13,10 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+	overflow: hidden;
+	width: auto;
+	height: auto;
 }
 
 h1#logo { 
@@ -52,6 +56,13 @@ div.v-but {
 	cursor: pointer;
 }
 
+ul#mods-list { 
+	position: absolute; 
+	width: 47.5%; 
+	height: 70%; 
+	overflow: auto;
+ 
+}
 ul#mods-list, ul#mods-list li {
 	list-style: none;
 	padding: 0;
@@ -118,6 +129,11 @@ div.mod-info img {
 	margin: 3px;
 }
 
+span.game-list img {
+	vertical-align: middle;
+	margin:3px;
+}
+
 div.play-button {
 	width:75%;
 	text-align: center;
@@ -163,26 +179,53 @@ span.window-controls strong {
 	height: 16px;
 }
 .wc-mini {
-	background: url('ui/ui-min.png');
+	background: url('img/ui/ui-min.png');
 }
 .wc-maxi {
-	background: url('ui/ui-max.png');
+	background: url('img/ui/ui-max.png');
 }
 .wc-rest {
-	background: url('ui/ui-res.png');
+	background: url('img/ui/ui-res.png');
 }
 .wc-clos {
-	background: url('ui/ui-clo.png');
+	background: url('img/ui/ui-clo.png');
 }
 .wc-mini:hover {
-	background: url('ui/ui-min-h.png');
+	background: url('img/ui/ui-min-h.png');
 }
 .wc-maxi:hover {
-	background: url('ui/ui-max-h.png');
+	background: url('img/ui/ui-max-h.png');
 }
 .wc-rest:hover {
-	background: url('ui/ui-res-h.png');
+	background: url('img/ui/ui-res-h.png');
 }
 .wc-clos:hover {
-	background: url('ui/ui-clo-h.png');
+	background: url('img/ui/ui-clo-h.png');
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 8px;
+    margin-left: 1px;
+}
+::-webkit-scrollbar:horizontal {
+	display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4); 
 }
