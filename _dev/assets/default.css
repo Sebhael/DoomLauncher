@@ -130,3 +130,39 @@ div.play-button {
 	width:75%;
 	text-align: center;
 }
+
+footer {
+	color: #a4a4a4;
+	font-size: 10px;
+	clear: both;
+}
+
+div.bod-border {
+	position: absolute;
+	z-index: 1;
+}
+div.top, div.bottom {
+	width: 100%;
+	height: 2px;
+	background: #161616;
+}
+div.left, div.right {
+	height: 100%;
+	width: 2px;
+	background: #161616;
+}
+div.top { top: 0; left: 0; }
+div.bottom { bottom: 0; left: 0; }
+div.right{ right: 0; top: 0; }
+div.left { left: 0; top: 0; } 
+
+div.resize {
+	z-index: 2;
+	position: absolute;
+	width: 10px;
+	height: 10px; 
+}
+div.top-l { top: 0; left: 0; }
+div.top-r { top: 0; right: 0;  }
+div.bot-l { bottom: 0; left: 0; }
+div.bot-r { bottom: 0; right: 0; }

@@ -1,0 +1,34 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// LocalStorage Getter
+function getStore(item)
+{
+	var item = air.EncryptedLocalStore.getItem(item);
+ 	return item;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// LocalStorage Setter
+function setStore(item, value)
+{
+	var bytes = new air.ByteArray();
+	bytes.writeUTFBytes(value);
+	air.EncryptedLocalStore.setItem(item, bytes);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// LocalStorage Array PUSH
+function setArray(item, value)
+{
+	var pushable = getStore(item);
+	pushable.push(value);
+	setStore(item, pushable);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// LocalStorage Array SPLICE
+function popArray(item, key)
+{
+	var poppable = getStore(item);
+	poppable.splice(key, 1);
+	setStore(item);
+}

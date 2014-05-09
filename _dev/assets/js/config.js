@@ -1,6 +1,8 @@
-var config = {
-	installedGames: ['stuff','stuff'],
-}
+var app_version = '1.0';
+
+var installed = {}
+
+var config = [];
 
 var validExts = [
 	'wad', // DooM Engine

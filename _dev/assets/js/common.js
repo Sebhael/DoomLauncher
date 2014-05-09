@@ -69,3 +69,7 @@ function onNativeMove()
 {
     nativeWindow.startMove();
 }
+function onResize(type)
+{
+	nativeWindow.startResize(type);
+}

@@ -11,7 +11,6 @@ function startLauncher()
 	{
 		$('#first-launch-tips').show();
 	}
-	air.trace(config.installedGames[1])
 }
 
 //# OS Interaction Functions #///////////////////////
@@ -99,33 +98,13 @@ function launchGame(game, mod)
 // Set MOD Folder
 function set_modFolder(path)
 {
-	setls('modFolder', path);
+	setStore('modFolder', path);
     return true;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Set Engine Path
 function set_enginePath(path)
 {
-	setls('enginePath', path);
+	setStore('enginePath', path);
 	return true;
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// LocalStorage Setter
-function setls(item, value)
-{
-	var bytes = new air.ByteArray();
-	bytes.writeUTFBytes(value);
-	air.EncryptedLocalStore.setItem(item, bytes);
-	return;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Local Storage Getter
-function getls(item)
-{
-	var item = air.EncryptedLocalStore.getItem(item);
-	return item;
-}
-
-//# Database Processing #///////////////////////
