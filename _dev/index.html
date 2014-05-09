@@ -11,12 +11,19 @@
 </head>
 
 <body onLoad="startLauncher()">
-	<header>
-		<h1>DooMLauncher</h1>
+
+	<header onmousedown="onNativeMove()" ondblclick="onMaximize()">
+		<span class="window-controls">
+			<strong class="wc-mini pointer" onClick="onMinimize()">_</strong>
+			<strong class="wc-maxi pointer" onClick="onMaximize()">#</strong>
+			<strong class="wc-rest pointer" style="display:none" onClick="onRestore()">@</strong>
+			<strong class="wc-clos pointer" onClick="onClose()">X</strong>
+		</span>
+		<h1 id="logo">DooMLauncher</h1>
 	</header>
 
 	<div class="menu" style="clear:both">
-		<span class="current-game">
+		<span class="game-list">
 		</span>
 
 		<div class="v-but">
@@ -26,17 +33,54 @@
 			<div class="button pointer" onClick="enginePathSelect()">
 				Engine
 			</div>
+			<div class="button pointer" onClick="changePage()">
+				Configuration
+			</div>
 		</div>
 		<div style="clear:both"></div>
 	</div>
 
+	<div id="dl-config">
+		<h3>Configure Your Installed Games!</h3>
+		<div>
+			You do not currently have any games added. Click on a game's box art to get started!
+		</div>
+		<div class="box-images">
+			<img src="assets/box/doom.jpg" />
+			<img src="assets/box/doom2.jpg" />
+			<img src="assets/box/heretic.jpg" />
+			<img src="assets/box/hexen.jpg" />
+			<img src="assets/box/strife.jpg" />
+			<img src="assets/box/hacx.jpg" />
+			<img src="assets/box/chex.jpg" />
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="mods-list panel">
-			No Mods Loaded
+			<!--No Mods Loaded-->
+			<ul id="mods-list">
+				<li>Alien Vendetta</li>
+				<li>Brotherhood of Ruin</li>
+				<li>Chosen</li>
+				<li>Community Chest #2</li>
+				<li>Console DooM</li>
+				<li>Evilution</li>
+				<li>Head2Head - XMas</li>
+				<li>HellCore</li>
+				<li>HellCore 2</li>
+				<li>DooM 64</li>
+				<li>DooM Raider</li>
+				<li>MassMouth 2</li>
+				<li>NimRoD IXNAY</li>
+			</ul>
 		</div>
 
 		<div class="mod-info panel">
-			No File Selected
+			<div class="mod-title"><center>DooM 64</center></div>
+			<img src="assets/wads/doom64.png" />
+			<center><div class="button pointer play-button">Play DooM 64!</div></center>
+
 		</div>
 	</div>
 </body>

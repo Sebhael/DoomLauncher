@@ -11,6 +11,7 @@ function startLauncher()
 	{
 		$('#first-launch-tips').show();
 	}
+	air.trace(config.installedGames[1])
 }
 
 //# OS Interaction Functions #///////////////////////
