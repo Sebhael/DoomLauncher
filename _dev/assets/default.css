@@ -106,7 +106,9 @@ div.panel {
 div#dl-config {
 	display: none;
 }
-
+div.setup-form {
+	display: none;
+}
 div.box-images {
 	margin-top: 5px;
 }
@@ -202,6 +204,8 @@ span.window-controls strong {
 .wc-clos:hover {
 	background: url('img/ui/ui-clo-h.png');
 }
+
+.small { font-size: 10px; }
 
 /* Let's get this party started */
 ::-webkit-scrollbar {

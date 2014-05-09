@@ -1,4 +1,18 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// OnDOMLoad Functions
+$(function(){
+	$('img.game-box, div.back-button').click(function() {
+		$('.box-images').toggle();
+		$('.setup-form').toggle();
+		$('.back-button').toggle();
+
+		$('.img-place').attr('src', $(this).attr('src'));
+		//$('h2.game-name').html('');
+		$('h2.game-name').html($(this).attr('rel'));
+		$('div.game-desc').html($(this).data('desc'));
+	});
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // LocalStorage Setter
 function createList(mods)
 {

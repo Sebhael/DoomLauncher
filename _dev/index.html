@@ -47,17 +47,76 @@
 			<div class="button pointer" onClick="enginePathSelect()">
 				Engine
 			</div>
-		<div>
-			Looks like we don't have any configuration information for you! Click on a game below to get started!
+			<div class="back-button button pointer" style="display: none; float: right">Cancel</div>
+
+		<div class="setup box-images">
+			<div>
+				Looks like we don't have any configuration information for you! Click on a game below to get started!
+			</div>
+			<img class="game-box pointer" 
+				rel="DooM" 
+				alt="doom" 
+				data-desc="GAME_DESC_DOOM" 
+				src="assets/img/box/doom.jpg" />
+			<img class="game-box pointer" 
+				rel="DooM II" 
+				alt="doom2" 
+				data-desc="GAME_DESC_DOOMII"
+				src="assets/img/box/doom2.jpg" />
+			<img class="game-box pointer" 
+				rel="Heretic" 
+				alt="heretic"
+				data-desc="GAME_DESC_HERETIC"
+				src="assets/img/box/heretic.jpg" />
+			<img class="game-box pointer" 
+				rel="HeXen" 
+				alt="hexen"
+				data-desc="GAME_DESC_HEXEN"
+				src="assets/img/box/hexen.jpg" />
+			<img class="game-box pointer" 
+				rel="Strife" 
+				alt="strife"
+				data-desc="GAME_DESC_STRIFE"
+				src="assets/img/box/strife.jpg" />
+			<img class="game-box pointer" 
+				rel="HACX" 
+				alt="hacx"
+				data-desc="GAME_DESC_HACX"
+				src="assets/img/box/hacx.jpg" />
+			<img class="game-box pointer" 
+				rel="Chex Quest" 
+				alt="chexquest"
+				data-desc="GAME_DESC_CHEX"
+				src="assets/img/box/chex.jpg" />
 		</div>
-		<div class="box-images">
-			<img class="pointer" alt="doom" src="assets/img/box/doom.jpg" />
-			<img class="pointer" alt="doom2" src="assets/img/box/doom2.jpg" />
-			<img class="pointer" alt="heretic" src="assets/img/box/heretic.jpg" />
-			<img class="pointer" alt="hexen" src="assets/img/box/hexen.jpg" />
-			<img class="pointer" alt="strife" src="assets/img/box/strife.jpg" />
-			<img class="pointer" alt="hacx" src="assets/img/box/hacx.jpg" />
-			<img class="pointer" alt="chexquest" src="assets/img/box/chex.jpg" />
+
+		<div class="setup setup-form">
+			<div class="panel" style="width:250px;text-align: center">
+				<h2 class="game-name"></h2>
+				<img class="img-place" src="">
+				<div class="game-desc small"></div>
+			</div>
+			<div class="panel">
+				<form>
+					<p>
+						<label>Engine Path</label>
+						<input type="file" />
+					</p>
+					<p>
+						<label>Mod Folder</label>
+						<input type="file" />
+					</p>
+					<p>
+						<label>Core File</label>
+						<input type="file">
+					</p>
+					<p>
+						<label>Parameters</label>
+						<input type="text" />
+					</p>
+					<div class="button pointer">Enter Game</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
@@ -78,7 +137,7 @@
 				<li>DooM Raider</li>
 				<li>MassMouth 2</li>
 				<li>NimRoD IXNAY</li>
-								<li>Alien Vendetta</li>
+				<li>Alien Vendetta</li>
 				<li>Brotherhood of Ruin</li>
 				<li>Chosen</li>
 				<li>Community Chest #2</li>
