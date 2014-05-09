@@ -25,8 +25,8 @@
 
 	<div class="menu" style="clear:both">
 		<span class="game-list">
-			<img src="assets/img/ico/doom1.png" title="iD Software: DooM" />
-			<img src="assets/img/ico/doom2.png" title="iD Software: DooM II" />
+			<img src="assets/img/ico/doom.png" class="pointer" data-game="doom" title="iD Software: DooM" />
+			<img src="assets/img/ico/doom2.png" class="pointer" data-game="doom2" title="iD Software: DooM II" />
 		</span>
 
 		<div class="v-but">
@@ -97,25 +97,26 @@
 				<div class="game-desc small"></div>
 			</div>
 			<div class="panel">
-				<form>
-					<p>
-						<label>Engine Path</label>
-						<input type="file" />
-					</p>
-					<p>
-						<label>Mod Folder</label>
-						<input type="file" />
-					</p>
-					<p>
-						<label>Core File</label>
-						<input type="file">
-					</p>
-					<p>
-						<label>Parameters</label>
-						<input type="text" />
-					</p>
-					<div class="button pointer">Enter Game</div>
-				</form>
+
+					<div class="button pointer" onClick="modFolderSelect()">
+						Mod Folder
+					</div> 
+					<span>Testing External Text</span>
+
+
+					<div class="button pointer" onClick="enginePathSelect()">
+						Engine Path
+					</div>
+					<span>Testing External Text</span>
+
+
+					<div class="button"> Parameters</div>
+					<input type="text" id="parameters" value="Testing External Text" /> 
+
+					<div class="button pointer" onClick="saveGame()">
+						Save Game
+					</div>
+
 			</div>
 		</div>
 	</div>
@@ -124,32 +125,32 @@
 		<div class="mods-list panel">
 			<!--No Mods Loaded-->
 			<ul id="mods-list">
-				<li>Alien Vendetta</li>
-				<li>Brotherhood of Ruin</li>
-				<li>Chosen</li>
-				<li>Community Chest #2</li>
-				<li>Console DooM</li>
-				<li>Evilution</li>
-				<li>Head2Head - XMas</li>
-				<li>HellCore</li>
-				<li>HellCore 2</li>
-				<li>DooM 64</li>
-				<li>DooM Raider</li>
-				<li>MassMouth 2</li>
-				<li>NimRoD IXNAY</li>
-				<li>Alien Vendetta</li>
-				<li>Brotherhood of Ruin</li>
-				<li>Chosen</li>
-				<li>Community Chest #2</li>
-				<li>Console DooM</li>
-				<li>Evilution</li>
-				<li>Head2Head - XMas</li>
-				<li>HellCore</li>
-				<li>HellCore 2</li>
-				<li>DooM 64</li>
-				<li>DooM Raider</li>
-				<li>MassMouth 2</li>
-				<li>NimRoD IXNAY</li>
+				<li class="mod-listing">Alien Vendetta</li>
+				<li class="mod-listing">Brotherhood of Ruin</li>
+				<li class="mod-listing">Chosen</li>
+				<li class="mod-listing">Community Chest #2</li>
+				<li class="mod-listing">Console DooM</li>
+				<li class="mod-listing">Evilution</li>
+				<li class="mod-listing">Head2Head - XMas</li>
+				<li class="mod-listing">HellCore</li>
+				<li class="mod-listing">HellCore 2</li>
+				<li class="mod-listing">DooM 64</li>
+				<li class="mod-listing">DooM Raider</li>
+				<li class="mod-listing">MassMouth 2</li>
+				<li class="mod-listing">NimRoD IXNAY</li>
+				<li class="mod-listing">Alien Vendetta</li>
+				<li class="mod-listing">Brotherhood of Ruin</li>
+				<li class="mod-listing">Chosen</li>
+				<li class="mod-listing">Community Chest #2</li>
+				<li class="mod-listing">Console DooM</li>
+				<li class="mod-listing">Evilution</li>
+				<li class="mod-listing">Head2Head - XMas</li>
+				<li class="mod-listing">HellCore</li>
+				<li class="mod-listing">HellCore 2</li>
+				<li class="mod-listing">DooM 64</li>
+				<li class="mod-listing">DooM Raider</li>
+				<li class="mod-listing">MassMouth 2</li>
+				<li class="mod-listing">NimRoD IXNAY</li>
 			</ul>
 		</div>
 

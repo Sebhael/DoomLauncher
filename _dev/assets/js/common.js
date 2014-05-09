@@ -11,7 +11,13 @@ $(function(){
 		$('h2.game-name').html($(this).attr('rel'));
 		$('div.game-desc').html($(this).data('desc'));
 	});
+
+	$('li.mod-listing').click(function() {
+		$('li.mod-listing').css('background-color','rgba(30, 32, 31, 0.5)');
+		$(this).css('background-color','rgba(0,0,0,0.8)');
+	});
 });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // LocalStorage Setter
 function createList(mods)
