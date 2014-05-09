@@ -48,7 +48,6 @@ div.v-but {
 	float:right;
 }
 
-
 .pointer {
 	cursor: pointer;
 }
@@ -97,17 +96,10 @@ div#dl-config {
 	display: none;
 }
 
-span.window-controls {
-	float: right;
+div.box-images {
+	margin-top: 5px;
 }
-span.window-controls strong {
-	display: inline-block;
-	width: 10px;
-	height: 10px;
-}
-.wc-mini:hover{
-	color: #000;
-}
+
 div.box-images img {
 	opacity: 0.7;
 }
@@ -129,12 +121,6 @@ div.mod-info img {
 div.play-button {
 	width:75%;
 	text-align: center;
-}
-
-footer {
-	color: #a4a4a4;
-	font-size: 10px;
-	clear: both;
 }
 
 div.bod-border {
@@ -166,3 +152,37 @@ div.top-l { top: 0; left: 0; }
 div.top-r { top: 0; right: 0;  }
 div.bot-l { bottom: 0; left: 0; }
 div.bot-r { bottom: 0; right: 0; }
+
+span.window-controls {
+	float: right;
+	margin-right: -17px;
+}
+span.window-controls strong {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+.wc-mini {
+	background: url('ui/ui-min.png');
+}
+.wc-maxi {
+	background: url('ui/ui-max.png');
+}
+.wc-rest {
+	background: url('ui/ui-res.png');
+}
+.wc-clos {
+	background: url('ui/ui-clo.png');
+}
+.wc-mini:hover {
+	background: url('ui/ui-min-h.png');
+}
+.wc-maxi:hover {
+	background: url('ui/ui-max-h.png');
+}
+.wc-rest:hover {
+	background: url('ui/ui-res-h.png');
+}
+.wc-clos:hover {
+	background: url('ui/ui-clo-h.png');
+}

@@ -8,16 +8,17 @@
 	<script src="assets/js/DoomLauncher.js"></script>
 	<script src="assets/js/common.js"></script>
 	<link rel="stylesheet" href="assets/default.css" />
+	<link rel="stylesheet" href="assets/open-iconic.min.css" />
 </head>
 
 <body onLoad="startLauncher()">
 
 	<header onmousedown="onNativeMove()" ondblclick="onMaximize()">
 		<span class="window-controls">
-			<strong class="wc-mini pointer" onClick="onMinimize()">_</strong>
-			<strong class="wc-maxi pointer" onClick="onMaximize()">#</strong>
-			<strong class="wc-rest pointer" style="display:none" onClick="onRestore()">@</strong>
-			<strong class="wc-clos pointer" onClick="onClose()">X</strong>
+			<strong class="wc-mini pointer" onClick="onMinimize()"></strong>
+			<strong class="wc-maxi pointer" onClick="onMaximize()"></strong>
+			<strong class="wc-rest pointer" style="display:none" onClick="onRestore()"></strong>
+			<strong class="wc-clos pointer" onClick="onClose()"></strong>
 		</span>
 		<h1 id="logo">DooMLauncher</h1>
 	</header>
@@ -41,18 +42,17 @@
 	</div>
 
 	<div id="dl-config">
-		<h3>Configure Your Installed Games!</h3>
 		<div>
-			You do not currently have any games added. Click on a game's box art to get started!
+			Looks like we don't have any configuration information for you! Click on a game below to get started!
 		</div>
 		<div class="box-images">
-			<img src="assets/box/doom.jpg" />
-			<img src="assets/box/doom2.jpg" />
-			<img src="assets/box/heretic.jpg" />
-			<img src="assets/box/hexen.jpg" />
-			<img src="assets/box/strife.jpg" />
-			<img src="assets/box/hacx.jpg" />
-			<img src="assets/box/chex.jpg" />
+			<img class="pointer" alt="doom" src="assets/box/doom.jpg" />
+			<img class="pointer" alt="doom2" src="assets/box/doom2.jpg" />
+			<img class="pointer" alt="heretic" src="assets/box/heretic.jpg" />
+			<img class="pointer" alt="hexen" src="assets/box/hexen.jpg" />
+			<img class="pointer" alt="strife" src="assets/box/strife.jpg" />
+			<img class="pointer" alt="hacx" src="assets/box/hacx.jpg" />
+			<img class="pointer" alt="chexquest" src="assets/box/chex.jpg" />
 		</div>
 	</div>
 
@@ -92,5 +92,6 @@
 	<div class="resize top-r" onmousedown="onResize(air.NativeWindowResize.TOP_RIGHT)"></div>
 	<div class="resize bot-l" onmousedown="onResize(air.NativeWindowResize.BOTTOM_LEFT)"></div>
 	<div class="resize bot-r" onmousedown="onResize(air.NativeWindowResize.BOTTOM_RIGHT)"></div>
+
 </body>
 </html>
