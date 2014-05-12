@@ -7,7 +7,6 @@ $(function(){
 		$('.back-button').toggle();
 
 		$('.img-place').attr('src', $(this).attr('src'));
-		//$('h2.game-name').html('');
 		$('h2.game-name').html($(this).attr('rel'));
 		$('div.game-desc').html($(this).data('desc'));
 	});
@@ -20,7 +19,7 @@ $(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // LocalStorage Setter
-function createList(mods)
+function renderList(mods)
 {
 	purgeList();
 /*

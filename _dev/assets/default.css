@@ -233,3 +233,19 @@ span.window-controls strong {
 ::-webkit-scrollbar-thumb:window-inactive {
 	background: rgba(0,0,0,0.4); 
 }
+
+.button {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  color: #a4a4a4;
+  text-shadow: 1px 1px 1px #000;
+  background: #1e201f;
+}
+
+.button:hover {
+  background: #941b1b;
+  text-decoration: none;
+}
